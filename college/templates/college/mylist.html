@@ -1,0 +1,81 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+<h3>Notices for user</h3>
+    </div>
+      <div class="col-8">
+  <h3>User Ask Question</h3>
+      </div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+
+        <table class="table table-bordered" style="width:200px">
+  <thead>
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Branch</th>
+
+    </tr>
+  </thead>
+    {% for n1 in notices %}
+  <tbody>
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{n1.branch}}</td>
+
+    </tr>
+
+  </tbody>
+    {% endfor %}
+</table>
+
+
+
+    </div>
+    <div class="col-8">
+
+        <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">subject</th>
+      <th scope="col">Message</th>
+      <th scope="col">User_Name</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+
+    </tr>
+  </thead>
+    {% for q1 in questions %}
+  <tbody>
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{q1.subject}}</td>
+      <td>{{q1.msg}}</td>
+      <td>{{q1.user_name}}</td>
+        <th scope="col"><a href="/college/notice/edit/{{ q1.id }}"><button type="button" class="btn btn-dark">Edit</button></a></th>
+      <th scope="col"><a href="/college/notice/delete/{{q1.id}}"><button type="button" class="btn btn-danger">Delete</button></th>
+
+    </tr>
+
+  </tbody>
+    {% endfor %}
+</table>
+
+
+    </div>
+  </div>
+</div>
+  </div></div>
+
+      {%endblock%}

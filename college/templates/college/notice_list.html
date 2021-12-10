@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<br><br>
+<center>
+<form>
+<input value="{{ request.GET.si }}" type="text" name="si" /> <!---ye form hamne search ke liye banaya hai value{{request.GET.si}} iska matlab hai ki ham jo serch karege wo fild me show hoga serch ke bad bhi}-->
+<input type="submit" value="Search" />
+</form>
+  </center>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Branch</th>
+      <th scope="col">DateTime</th>
+      <th scope="col">More</th>
+    </tr>
+  </thead>
+    {% for n1 in notice_list %}
+  <tbody>
+    <tr>
+      <th scope="row">#</th>
+      <td>{{n1.branch}}</td>
+      <td>{{n1.cr_date | date:"d/m/y"}}</td>
+      <td><a href='/college/notice/{{n1.id}}'>Read More</a></td>
+    </tr>
+
+  </tbody>
+    {% endfor %}
+</table>
+
+{%endblock%}

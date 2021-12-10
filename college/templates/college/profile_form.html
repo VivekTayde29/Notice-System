@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<center>
+<h1>Profile Update</h1>
+
+<form enctype="multipart/form-data" method="post"><!--- enctype="multipart/form-data" iska matlab hai hamko html se image upload karna hai to dena padega method=post hona jaruri hai get nhi chalega-->
+{% csrf_token %}
+{{form | crispy}}
+<input type="submit" />
+</form>
+    </center>
+
+{% endblock %}
